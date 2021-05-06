@@ -16,7 +16,7 @@ def send_message(message, port):
         return r_msg
 
 
-def create(id_, is_coordinator, port):
-    python_run_command = 'py Process.py --id {} --port {} --isCoordinator {}'.format(
-        id_, port, is_coordinator)
+def create(id_, is_coordinator, port, value):
+    python_run_command = 'py Process.py --id {} --port {} --isCoordinator {} --value {}'.format(
+        id_, port, is_coordinator, value)
     subprocess.Popen(python_run_command, shell=True, stdout=subprocess.PIPE)

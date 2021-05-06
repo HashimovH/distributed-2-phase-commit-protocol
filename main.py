@@ -26,16 +26,12 @@ if __name__ == '__main__':
         if line.startswith("Consistency"):
             history = line.split(";")[1].strip()
             history = history.split(",")
-
     # Create Network
     network = Network(nodes, history)
     print("Network has been created")
 
     # Receive commands and process
-    try:
-        while True:
-            print('Enter your command: ', end='$ ')
-            cmd = input()
-            net.process_command(cmd)
-    except:
-        os._exit(0)
+    while True:
+        print('Enter your command: ', end='$ ')
+        cmd = input()
+        network.process_command(cmd)
