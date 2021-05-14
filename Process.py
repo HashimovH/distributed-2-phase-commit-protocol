@@ -21,11 +21,12 @@ class Process:
 
     def undo_coordinator(self):
         self.is_coordinator = False
+
     def change_value(self, newVal):
         self.value = newVal
 
     def processMessages(self, message):
-        #priority
+        # priority
         if message == "unfreeze":
             self.frozen = False
             return ""
@@ -46,9 +47,8 @@ class Process:
             if(self.failed):
                 return "CANCEL"
             return "ok"
-        #helps debug
+        # helps debug
         elif message == 'list':
-            #Hashim, what is wrong with you making boolean values strings?
             if(self.is_coordinator == "True"):
                 return f"{self.label}: {self.value} (coordinator)"
             else:
@@ -58,7 +58,7 @@ class Process:
             self.change_value(newVal)
             return f"{self.label} changed value to {newVal}"
         elif message == "id":
-            return self.id_
+            return str(self.id_)
         elif message == "kill":
             exit()
             return ""
